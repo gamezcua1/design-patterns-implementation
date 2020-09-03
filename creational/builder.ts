@@ -1,26 +1,26 @@
 class Home {
-  walls: Number;
-  doors: Number;
-  windows: Number;
-  roof: Number;
-  garage: Boolean;
+  walls: number;
+  doors: number;
+  windows: number;
+  roof: number;
+  garage: boolean;
 }
 
 class HomeRender {
-  walls: String;
-  doors: String;
-  windows: String;
-  roof: String;
-  garage: String;
+  walls: string;
+  doors: string;
+  windows: string;
+  roof: string;
+  garage: string;
 }
 
 abstract class HouseBuilder {
   abstract reset(): void;
-  abstract buildWalls(number: Number): void;
-  abstract buildDoors(number: Number): void;
-  abstract buildWindows(number: Number): void;
-  abstract buildRoof(number: Number): void;
-  abstract buildGarage(hasGarage: Boolean): void;
+  abstract buildWalls(number: number): void;
+  abstract buildDoors(number: number): void;
+  abstract buildWindows(number: number): void;
+  abstract buildRoof(number: number): void;
+  abstract buildGarage(hasGarage: boolean): void;
 }
 
 class HomeBuilder extends HouseBuilder {
@@ -30,23 +30,23 @@ class HomeBuilder extends HouseBuilder {
     this.result = new Home();
   }
 
-  buildWalls(number: Number): void {
+  buildWalls(number: number): void {
     this.result.walls = number;
   }
 
-  buildDoors(number: Number): void {
+  buildDoors(number: number): void {
     this.result.doors = number
   }
 
-  buildWindows(number: Number): void {
+  buildWindows(number: number): void {
     this.result.windows = number;
   }
 
-  buildRoof(number: Number): void {
+  buildRoof(number: number): void {
     this.result.roof = number;
   }
 
-  buildGarage(hasGarage: Boolean): void {
+  buildGarage(hasGarage: boolean): void {
     this.result.garage = hasGarage;
   }
 
@@ -63,23 +63,23 @@ class HomeRenderBuilder extends HouseBuilder {
     this.result = new HomeRender();
   }
 
-  buildWalls(number: Number): void {
+  buildWalls(number: number): void {
     this.result.walls = `${number} fancy looking walls`;
   }
 
-  buildDoors(number: Number): void {
+  buildDoors(number: number): void {
     this.result.doors = `${number} fancy looking walls`;
   }
 
-  buildWindows(number: Number): void {
+  buildWindows(number: number): void {
     this.result.windows = `${number} fancy looking windows`;
   }
 
-  buildRoof(number: Number): void {
+  buildRoof(number: number): void {
     this.result.roof = `${number} fancy looking roof`;
   }
 
-  buildGarage(hasGarage: Boolean): void {
+  buildGarage(hasGarage: boolean): void {
     this.result.garage = hasGarage ? "Fancy looking garage" : "Does not have garage";
   }
 
