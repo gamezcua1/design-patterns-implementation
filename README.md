@@ -11,7 +11,7 @@
 - ✅ Singleton
 
 ### Structural
-- ❌ Adapter
+- ✅ Adapter
 - ❌ Bridge
 - ❌ Composite
 - ❌ Decorator
