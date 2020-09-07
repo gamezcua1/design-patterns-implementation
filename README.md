@@ -13,7 +13,7 @@
 ### Structural
 - ✅ Adapter
 - ✅ Bridge
-- ❌ Composite
+- ✅ Composite
 - ❌ Decorator
 - ❌ Facade
 - ❌ Flyweight
