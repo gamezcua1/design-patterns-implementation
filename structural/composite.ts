@@ -3,7 +3,7 @@ abstract class Item {
   name: string
   price: number
 
-  constructor(name: string, price?: number) {
+  constructor (name: string, price?: number) {
     this.name = name
     this.price = price
   }
@@ -15,66 +15,67 @@ abstract class Item {
 class Box extends Item {
   inside: Item[] = [];
 
-  getTotal() {
-    return this.inside.reduce((acc, cur) => acc += cur.getTotal(), 0)
+  getTotal () {
+    return this.inside.reduce((acc, cur) => {
+      acc += cur.getTotal()
+      return acc
+    }, 0)
   }
 
-  contains() {
+  contains () {
     console.log(`<-- 📦 ${this.name} -->`)
     this.inside.forEach((i) => i.contains())
   }
 
-  add(item: Item) {
+  add (item: Item) {
     this.inside.push(item)
   }
 
-  addItems(items: Item[]) {
+  addItems (items: Item[]) {
     items.forEach((i) => this.inside.push(i))
   }
 
-  remove(item: Item) {
-    this.inside = this.inside.filter((i) => i.name != item.name)
+  remove (item: Item) {
+    this.inside = this.inside.filter((i) => i.name !== item.name)
   }
 }
 
 class Product extends Item {
-  getTotal() {
+  getTotal () {
     return this.price
   }
 
-  contains() {
+  contains () {
     console.log(this.name)
   }
 }
 
-
-const phone = new Product("iPhone", 20999)
-const phoneAccesories = new Box("iPhone accesories")
+const phone = new Product('iPhone', 20999)
+const phoneAccesories = new Box('iPhone accesories')
 phoneAccesories.addItems([
-  new Product("Sennheiser HD4.40", 2100),
-  new Product("iPhone wireless charger", 2000)
+  new Product('Sennheiser HD4.40', 2100),
+  new Product('iPhone wireless charger', 2000)
 ])
 
-const phoneBox = new Box("new iPhone 10")
-phoneBox.addItems([ phone, phoneAccesories ])
+const phoneBox = new Box('new iPhone 10')
+phoneBox.addItems([phone, phoneAccesories])
 
+const drill = new Box('Drill MAX 3000')
+drill.add(new Product('Drill MAX 3000', 900))
 
-const drill = new Box("Drill MAX 3000")
-drill.add(new Product("Drill MAX 3000", 900))
-
-const drillNeeded = new Box("Drill MAX 3000 included stuff")
+const drillNeeded = new Box('Drill MAX 3000 included stuff')
 drillNeeded.addItems([
-  new Product("Drill Cable", 100),
-  new Product("Battery 1000 mAh", 200)
+  new Product('Drill Cable', 100),
+  new Product('Battery 1000 mAh', 200)
 ])
 
-const drillAccesories = new Box("Drill accesories")
+const drillAccesories = new Box('Drill accesories')
 drillAccesories.addItems([
-  new Product("Cleaner", 100),
-  new Product("Holding kit", 50)
+  new Product('Cleaner', 100),
+  new Product('Holding kit', 50)
 ])
 
-const drillBox = new Box("Drill Max 3000 Starter KIT");
+const drillBox = new Box('Drill Max 3000 Starter KIT')
 drillBox.addItems([
   drill,
   drillNeeded,
@@ -88,5 +89,5 @@ order.addItems([
   drillBox
 ])
 
-order.contains();
+order.contains()
 console.log(`📦 Total: ${order.getTotal()}`)

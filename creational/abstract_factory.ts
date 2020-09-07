@@ -3,14 +3,14 @@ abstract class Chair {
 }
 
 class VictorianChair extends Chair {
-  public sitOn() {
-    console.log("Sitting on a VICTORIAN Chair");
+  public sitOn () {
+    console.log('Sitting on a VICTORIAN Chair')
   }
 }
 
 class ModernChair extends Chair {
-  public sitOn() {
-    console.log("Sitting on a MODERN Chair");
+  public sitOn () {
+    console.log('Sitting on a MODERN Chair')
   }
 }
 
@@ -19,14 +19,14 @@ abstract class Table {
 }
 
 class VictorianTable extends Table {
-  public put() {
-    console.log("Putting on a VICTORIAN Table ")
+  public put () {
+    console.log('Putting on a VICTORIAN Table ')
   }
 }
 
 class ModernTable extends Table {
-  public put() {
-    console.log("Putting on a MODERN Table");
+  public put () {
+    console.log('Putting on a MODERN Table')
   }
 }
 
@@ -36,24 +36,22 @@ abstract class Furniture {
 }
 
 class VictorianFurniture extends Furniture {
-  
-  public createTable() {
-    return new VictorianTable();
+  public createTable () {
+    return new VictorianTable()
   }
 
-  public createChair() {
-    return new VictorianChair();
+  public createChair () {
+    return new VictorianChair()
   }
-
 }
 
 class ModernFurniture extends Furniture {
-  public createTable() {
-    return new ModernTable();
+  public createTable () {
+    return new ModernTable()
   }
 
-  public createChair() {
-    return new ModernChair();
+  public createChair () {
+    return new ModernChair()
   }
 }
 
@@ -62,31 +60,29 @@ class AFApp {
   table : Table = null;
   chair : Chair = null;
 
-  constructor(furniture: Furniture) {
-    this.furniture = furniture;
+  constructor (furniture: Furniture) {
+    this.furniture = furniture
   }
 
-  public createFurniture(): void {
-    this.table = this.furniture.createTable();
-    this.chair = this.furniture.createChair();
+  public createFurniture (): void {
+    this.table = this.furniture.createTable()
+    this.chair = this.furniture.createChair()
   }
 
-  public main(): void {
+  public main (): void {
     this.table.put()
     this.chair.sitOn()
   }
 }
 
-const victorian = new VictorianFurniture();
-const modern = new ModernFurniture();
+const victorian = new VictorianFurniture()
+const modern = new ModernFurniture()
 
+const victorianApp = new AFApp(victorian)
+const modernApp = new AFApp(modern)
 
-const victorian_app = new AFApp(victorian);
-const modern_app = new AFApp(modern);
+victorianApp.createFurniture()
+modernApp.createFurniture()
 
-victorian_app.createFurniture()
-modern_app.createFurniture();
-
-victorian_app.main();
-modern_app.main();
-
+victorianApp.main()
+modernApp.main()

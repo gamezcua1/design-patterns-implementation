@@ -5,9 +5,9 @@ interface SProduct {
 }
 
 const products: SProduct[] = [
-  {id: 1, name: "Laptop", price: 10 },
-  {id: 2, name: "car", price: 20 },
-  {id: 3, name: "Cellphone", price: 30 },
+  { id: 1, name: 'Laptop', price: 10 },
+  { id: 2, name: 'car', price: 20 },
+  { id: 3, name: 'Cellphone', price: 30 }
 ]
 
 class Store {
@@ -15,32 +15,28 @@ class Store {
 
   private products = {}
 
-  private constructor() {
-    console.log("Store initialized correctly")
+  private constructor () {
+    console.log('Store initialized correctly')
   }
 
-  static getInstance() {
-    if(!Store.instance) 
-      Store.instance = new Store();
+  static getInstance () {
+    if (!Store.instance) { Store.instance = new Store() }
 
-    return Store.instance;
+    return Store.instance
   }
 
-  saveProduct(p: SProduct) {
+  saveProduct (p: SProduct) {
     this.products[p.id] = p
   }
 
-  getProduct(id: number) {
-    return this.products[id.toString()];
+  getProduct (id: number) {
+    return this.products[id.toString()]
   }
 }
 
-const store = Store.getInstance();
+const store = Store.getInstance()
 console.log(store.getProduct(1))
 
 products.forEach(p => store.saveProduct(p))
 
 console.log(store.getProduct(1))
-
-
-

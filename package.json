@@ -8,11 +8,16 @@
     "@typescript-eslint/parser": "^4.0.1",
     "eslint": "^7.8.1",
     "standard": "^14.3.4",
+    "standardx": "^5.0.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   },
   "scripts": {
-    "lint": "standard && eslint . --ext .ts",
+    "lint": "standardx **/*.ts && eslint . --ext .ts",
     "fix": "eslint . --ext .ts --fix"
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [ "@typescript-eslint/eslint-plugin" ]
   }
 }
